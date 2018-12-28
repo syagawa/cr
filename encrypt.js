@@ -1,17 +1,6 @@
 const CryptoJS = require("crypto-js");
-const fs = require("fs");
 
-let tx = process.argv[2];
-let pp = process.argv[3];
-
-const mode = tx;
-if(mode === "file"){
-  let file = process.argv[3];
-  tx = fs.readFileSync(file, "utf8");
-  pp = process.argv[4];
-}
-
-const makeCrypt = function(txt, phrase){
+const encrypt = function(txt, phrase){
 
   const text = CryptoJS.enc.Utf8.parse(txt);
   const passphrase = CryptoJS.enc.Utf8.parse(phrase);
@@ -33,16 +22,4 @@ const makeCrypt = function(txt, phrase){
 
 };
 
-const b = makeCrypt(tx, pp);
-
-fs.writeFile("./out/binary", b, "utf8", function(err, data){
-  if(err){
-    console.log("error", err);
-  }
-});
-
-fs.writeFile("./out/pp", pp, "utf8", function(err, data){
-  if(err){
-    console.log("error", err);
-  }
-});
+module.exports = encrypt;
