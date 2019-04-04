@@ -26,8 +26,6 @@ $ node toEnc.js -t <String> <passphrase>
 
 ## Decrypt
 
-### 
-
 $ node toDec.js <binaryfilename> <passphrase>
 
 or

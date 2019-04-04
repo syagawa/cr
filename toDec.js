@@ -5,7 +5,7 @@ const mode = process.argv[2];
 let b, pp;
 
 if(mode === "-t"){
-  b = process.argv[3]
+  b = process.argv[3];
   pp = process.argv[4];
 }else{
   b = fs.readFileSync(mode, "utf8");
